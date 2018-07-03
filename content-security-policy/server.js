@@ -7,7 +7,7 @@ var template = require('lodash').template(fs.readFileSync('index.html', 'utf8'))
 var sanitize = require('sanitize-html');
 
 var server = http.createServer(function(req, res) {
-    res.setHeader('Content-Security-Policy', "script-src 'self'; style-src 'self'");
+    res.setHeader('Content-Security-Policy', "script-src 'self'; style-src 'self' https://fonts.googleapis.com");
 
     switch(req.url) {
         case '/index.js':
