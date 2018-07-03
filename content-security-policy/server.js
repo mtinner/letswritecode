@@ -7,7 +7,8 @@ var template = require('lodash').template(fs.readFileSync('index.html', 'utf8'))
 var sanitize = require('sanitize-html');
 
 var server = http.createServer(function(req, res) {
-
+    res.setHeader('Content-Security-Policy', "script-src 'self'");
+    
     switch(req.url) {
         case '/index.js':
             // If requesting index.js, browserify our script and return it
@@ -24,7 +25,7 @@ var server = http.createServer(function(req, res) {
                 comment.push(data)
             });
             req.on('end', function() {
-                comment = sanitize(comment.join(''));
+                comment = comment.join('');
                 db.put(Date.now(), comment, function() {
                     res.end()
                 })
