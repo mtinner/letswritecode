@@ -24,7 +24,7 @@ var server = http.createServer(function(req, res) {
                 comment.push(data)
             });
             req.on('end', function() {
-                comment = comment.join('');
+                comment = sanitize(comment.join(''));
                 db.put(Date.now(), comment, function() {
                     res.end()
                 })
