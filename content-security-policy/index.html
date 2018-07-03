@@ -1,24 +1,26 @@
 <html>
 <head>
-  <link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet"
+		  href="https://fonts.googleapis.com/css?family=Galada">
 </head>
 <body>
-  <h1>Bears are the best!</h1>
+<h1>Bears are the best!</h1>
 
-  <form>
-    <div>
-      <label>What do you think?</label>
-      <textarea></textarea>
-      <button type="submit">Send</button>
-    </div>
-  </form>
+<form>
+	<div>
+		<label>What do you think?</label>
+		<textarea></textarea>
+		<button type="submit">Send</button>
+	</div>
+</form>
 
-  <h2>Other people thoughts</h2>
-  <ul class="comments">
+<h2>Other people thoughts</h2>
+<ul class="comments">
     <% _.forEach(comments, function(comment) { %><li><%= comment %></li><% }); %>
-  </ul>
+</ul>
 
-  <script src="index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
 
